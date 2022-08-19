@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #4: Formatting text</title>
+    <style>
+
+
+.new-class {
+  font-style: italic !important;
+
+}
+
+.new-class1 {
+  font-weight: bold !important;
+
+}
+
+.new-class2 {
+ text-decoration: underline !important;
+
+}
+
+
+        div {
+            width: 600px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: 10px;
+            /* default options */
+            font-family: Arial;
+            font-size: 12pt;
+        }
+    </style>
+</head>
+<body>
+<form name="form">
+    <select name="font_family" id="font_family" onchange="changefontfam(this)">
+        <option  value="Arial" selected>Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+    </select>
+    <select name="font_size" id="input-font" onchange="changeFontSize (this);">
+        <option  value="8pt">8pt</option>
+        <option value="10pt">10pt</option>
+        <option value="12pt" selected>12pt</option>
+        <option value="14pt">14pt</option>
+        <option value="16pt">16pt</option>
+    </select>
+    <label>Italic <input type="checkbox" name="font_italic" id="change-color" ></label>
+    <label>Bold <input type="checkbox" name="font_bold" id="font_bold"></label>
+    <label>Underline <input type="checkbox" name="font_underline" id="font_underline"></label>
+</form>
+
+<script>
+    var changeFontSize = function (font) {
+        document.getElementById(
+            "dynamic-color").style.fontSize
+                    = font.value;
+    }
+
+    var changefontfam = function (font) {
+        document.getElementById(
+            "dynamic-color").style.fontFamily
+                    = font.value;
+    }
+</script>
+
+<div id="dynamic-color">The quick brown fox jumps over the lazy dog</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+  
+$("#change-color").change(function() {
+  if(this.checked) {
+      $("#dynamic-color").addClass('new-class');
+  } else {
+      $("#dynamic-color").removeClass("new-class")
+  }
+});
+
+
+$("#font_bold").change(function() {
+  if(this.checked) {
+      $("#dynamic-color").addClass('new-class1');
+  } else {
+      $("#dynamic-color").removeClass("new-class1")
+  }
+});
+
+
+$("#font_underline").change(function() {
+  if(this.checked) {
+      $("#dynamic-color").addClass('new-class2');
+  } else {
+      $("#dynamic-color").removeClass("new-class2")
+  }
+});
+
+
+})
+
+
+
+
+</script>
+</body>
+</html>
+
